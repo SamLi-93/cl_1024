@@ -22,7 +22,7 @@ class ClCommunitySpider(CrawlSpider):
         return pages
 
     def parse(self, response):
-        print response
+        print response.url
 
         sel = Selector(response)
         item = Cl1024Item()
