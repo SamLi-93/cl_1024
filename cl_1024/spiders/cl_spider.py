@@ -15,8 +15,8 @@ class ClCommunitySpider(CrawlSpider):
 
     def start_requests(self):
         pages = []
-        for i in range(1, 100):
-            url = 'http://t66y.com/thread0806.php?fid=22&search=&page=%s'
+        for i in range(1, 10):
+            url = 'http://t66y.com/thread0806.php?fid=22&search=&page=%d' % i
             page = scrapy.Request(url)
             pages.append(page)
         return pages
@@ -29,10 +29,6 @@ class ClCommunitySpider(CrawlSpider):
 
         movie_name = sel.xpath("//h3/a/text()").extract()
         url = sel.xpath("//h3/a/@href").extract()
-
-        print '------------'
-        print movie_name
-        print '------------'
 
         item['movie_name'] = [n.encode('utf-8') for n in movie_name]
         item['url'] = [n.encode('utf-8') for n in url]
