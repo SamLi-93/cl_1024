@@ -30,9 +30,9 @@ class ClCommunitySpider(CrawlSpider):
         movie_name = sel.xpath("//h3/a/text()").extract()
         url = sel.xpath("//h3/a/@href").extract()
 
-        print '-----------'
+        print '------------'
         print movie_name
-        print '-----------'
+        print '------------'
 
         item['movie_name'] = [n.encode('utf-8') for n in movie_name]
         item['url'] = [n.encode('utf-8') for n in url]
