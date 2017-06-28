@@ -15,7 +15,7 @@ class ClCommunitySpider(CrawlSpider):
 
     def start_requests(self):
         pages = []
-        for i in range(1, 30):
+        for i in range(1, 100):
             url = 'http://t66y.com/thread0806.php?fid=22&search=&page=%s'
             page = scrapy.Request(url)
             pages.append(page)
