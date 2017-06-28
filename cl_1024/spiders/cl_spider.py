@@ -22,13 +22,17 @@ class ClCommunitySpider(CrawlSpider):
         return pages
 
     def parse(self, response):
-        print response.text()
+        print response
 
         sel = Selector(response)
         item = Cl1024Item()
 
         movie_name = sel.xpath("//h3/a/text()").extract()
         url = sel.xpath("//h3/a/@href").extract()
+
+        print '-----------'
+        print movie_name
+        print '-----------'
 
         item['movie_name'] = [n.encode('utf-8') for n in movie_name]
         item['url'] = [n.encode('utf-8') for n in url]
